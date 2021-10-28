@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Student = require('../Controllers/StudentController');
-const Class = require('../Controllers/ClassController');
+const Courses = require('../Controllers/CoursesController');
 
-router.get('/student', Student.find);
+// Rotas de teste
 
-router.post('/student', Student.create);
+router.post('/courses', Courses.create);
 
-router.post('/class', Class.create);
+router.get('/courses', Courses.find);
 
 module.exports = router;
