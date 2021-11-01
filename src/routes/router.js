@@ -3,6 +3,7 @@ const router = express.Router();
 const Courses = require('../controllers/CoursesController');
 const Instructors = require('../controllers/InstructorsController');
 const Class = require('../controllers/ClassController');
+const Students = require('../controllers/StudentsController');
 
 // Rotas de teste
 
@@ -17,5 +18,10 @@ router.get('/instructors', Instructors.find);
 // Rotas da turma
 router.post('/class', Class.create);
 router.get('/class', Class.find);
+router.get('/classes', Class.findAll);
+
+// Rotas do aluno
+router.post('/students', Students.create);
+router.get('/students', Students.find);
 
 module.exports = router;

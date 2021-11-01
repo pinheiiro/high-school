@@ -45,6 +45,6 @@ Class.init({
 });
 
 Class.belongsTo(Instructors, {foreignKey: 'instructors_id', as: 'instructor'});
-Class.belongsTo(Courses, {foreignKey: 'courses_id', as: 'newcourse'});
+Class.belongsTo(Courses, {foreignKey: 'courses_id', as: 'course'});
 
 module.exports = Class;

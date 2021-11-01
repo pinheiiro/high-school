@@ -25,7 +25,7 @@ module.exports = {
           key: 'id'
         },
         onUpdate: 'CASCADE',
-        onUpdate: 'RESTRICT'
+        onDelete: 'RESTRICT'
       },
       courses_id: {
         type: Sequelize.INTEGER,

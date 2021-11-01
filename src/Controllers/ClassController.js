@@ -8,7 +8,24 @@ module.exports = {
     },
 
     async find(req, res) {
-        const classes = await Class.findAll();
+        const {id} = req.body;
+        const classes = await Class.findByPk(id, {
+            attributes: ['initial_date', 'workload'],
+            include: [
+                {association: 'instructor', attributes: ['name', 'email']},
+                {association: 'course', attributes: ['name', 'price']}
+            ]
+        });
+        res.status(200).json(classes);
+    },
+
+    async findAll(req, res) {
+        const classes = await Class.findAll({
+            include: [
+                {association: 'instructor'},
+                {association: 'course'}
+            ]
+        });
         res.status(200).json(classes);
     }
 }
