@@ -21,9 +21,10 @@ module.exports = {
 
     async findAll(req, res) {
         const classes = await Class.findAll({
+            attributes: ['id', 'initial_date', 'workload'],
             include: [
-                {association: 'instructor'},
-                {association: 'course'}
+                {association: 'instructor', attributes: ['name', 'email']},
+                {association: 'course', attributes: ['name', 'price']}
             ]
         });
         res.status(200).json(classes);

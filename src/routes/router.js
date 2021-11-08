@@ -4,6 +4,7 @@ const Courses = require('../controllers/CoursesController');
 const Instructors = require('../controllers/InstructorsController');
 const Class = require('../controllers/ClassController');
 const Students = require('../controllers/StudentsController');
+const Registration = require('../controllers/RegistrationController');
 
 // Rotas de teste
 
@@ -23,5 +24,10 @@ router.get('/classes', Class.findAll);
 // Rotas do aluno
 router.post('/students', Students.create);
 router.get('/students', Students.find);
+
+// Rotas da matricula
+router.post('/registration', Registration.create);
+router.get('/registration', Registration.find);
+router.get('/enrollment', Registration.findAll);
 
 module.exports = router;
