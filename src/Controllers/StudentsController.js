@@ -8,6 +8,12 @@ module.exports = {
     },
 
     async find(req, res) {
+        const { id } = req.body;
+        const student = await Students.findByPk(id);
+        res.status(200).json(student);
+    },
+
+    async findAll(req, res) {
         const student = await Students.findAll();
         res.status(200).json(student);
     }
